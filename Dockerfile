@@ -37,10 +37,6 @@ RUN mkdir -p /home/app/trained
 
 COPY trainingImages /home/app/trained
 
-RUN mkdir -p /home/app/test
-
-COPY pic1.jpg /home/app/test
-
 RUN mkdir -p /home/app/object_detection_module
 
 COPY ./src object_detection_module/src
