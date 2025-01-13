@@ -1,21 +1,22 @@
 [project]
 name = "object_detection_module"
-version = "0.0.0"
-description = "TODO: Add a description here"
-authors = [{name = "Ryan D. Lewis", email="ryan.lewis@anl.gov"}] # TODO: update authors list
-# TODO: Add additional python dependencies here
+version = "1.5.0"
+description = "A module that allows you to take a picture via webcam and run YOLO object detection through darknet"
+authors = [{name = "Pranav Sinha", email="pranavsinha@oakland.edu"}]
 dependencies = [
     "fastapi>=0.103",
     "uvicorn>=0.14.0",
+    "opencv-python-headless",
     "ad_sdl.wei",
     "pytest",
+    "numpy<2"
 ]
-requires-python = ">=3.9.1"
+requires-python = ">=3.8.1"
 readme = "README.md"
 license = {text = "MIT"}
 
 [project.urls]
-homepage = "https://github.com/AD-SDL/object_detection_module"
+homepage = "https://github.com/AD-SDL/python_template_module"
 
 #####################
 # Development Tools #

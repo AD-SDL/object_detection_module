@@ -8,10 +8,14 @@ services:
       tags:
         - ghcr.io/ad-sdl/object_detection_module:latest
         - ghcr.io/ad-sdl/object_detection_module:dev
+    privileged: true
+    env_file: .env        
     volumes:
       - ./src:/home/app/object_detection_module/src
       - ./tests:/home/app/object_detection_module/tests
+      - ${DEVICE}:/dev/video0
     command: python -m object_detection_module --port 2000
+    
     ports:
       - 2000:2000
 #####################
