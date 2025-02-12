@@ -18,30 +18,18 @@ RUN apt-get update && \
 
 RUN mkdir -p /root/src
 
-RUN cd /root/src && ls -lrth
-
-RUN mkdir -p /root/src/darknet_install
-
-RUN cd /root/src && ls -lrth
-
-WORKDIR /root/src
-
 # Clone the Darknet repository
-# RUN git clone https://github.com/hank-ai/darknet /root/src/darknet
-RUN git clone https://github.com/hank-ai/darknet darknet_install/
+RUN git clone https://github.com/hank-ai/darknet /root/src/darknet
 
 # Build Darknet
-WORKDIR /root/src/darknet_install/darknet
-
-RUN pwd
-
-RUN ls -lrth
+WORKDIR /root/src/darknet
 
 RUN mkdir build && cd build
 
-RUN cmake -DCMAKE_BUILD_TYPE=Release ..
+WORKDIR /root/src/darknet/build
 
-RUN make -j4 package
+RUN cmake -DCMAKE_BUILD_TYPE=Release .. && \
+    make -j4 package
 
 # Install Darknet package
 RUN dpkg -i build/darknet-*.deb
