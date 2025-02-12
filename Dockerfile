@@ -25,9 +25,11 @@ RUN git clone https://github.com/hank-ai/darknet /root/src/darknet_install
 # Build Darknet
 WORKDIR /root/src/darknet_install/darknet
 
-RUN mkdir build && cd build && \
-    cmake -DCMAKE_BUILD_TYPE=Release .. && \
-    make -j4 package
+RUN mkdir build && cd build
+
+RUN cmake -DCMAKE_BUILD_TYPE=Release ..
+
+RUN make -j4 package
 
 # Install Darknet package
 RUN dpkg -i build/darknet-*.deb
