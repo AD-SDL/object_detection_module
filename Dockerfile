@@ -31,7 +31,7 @@ WORKDIR /root/src
 RUN git clone https://github.com/hank-ai/darknet darknet_install/
 
 # Build Darknet
-WORKDIR /root/src/darknet_install
+WORKDIR /root/src/darknet_install/darknet
 
 RUN pwd
 
