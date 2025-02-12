@@ -29,10 +29,11 @@ RUN mkdir build && cd build
 WORKDIR /root/src/darknet/build
 
 RUN cmake -DCMAKE_BUILD_TYPE=Release .. && \
-    make -j4 package
+    make -j4 package && \
+    dpkg -i build/darknet-*.deb
 
 # Install Darknet package
-RUN dpkg -i build/darknet-*.deb
+# RUN dpkg -i build/darknet-*.deb
 
 WORKDIR /home/app
 
