@@ -25,6 +25,8 @@ RUN git clone https://github.com/hank-ai/darknet /root/src
 # Build Darknet
 WORKDIR /root/src/darknet
 
+RUN pwd
+
 RUN mkdir build && cd build && \
     cmake -DCMAKE_BUILD_TYPE=Release .. && \
     make -j4 package
