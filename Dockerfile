@@ -20,14 +20,10 @@ RUN mkdir -p /root/src
 
 # Clone the Darknet repository
 # RUN git clone https://github.com/hank-ai/darknet /root/src/darknet
-RUN git clone https://github.com/hank-ai/darknet /root/src
+RUN git clone https://github.com/hank-ai/darknet /root/src/darknet
 
 # Build Darknet
-WORKDIR /root/src/darknet
-
-RUN pwd
-
-RUN ls -lrth
+WORKDIR /root/src/darknet/darknet
 
 RUN mkdir build && cd build && \
     cmake -DCMAKE_BUILD_TYPE=Release .. && \
