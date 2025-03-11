@@ -33,7 +33,11 @@ WORKDIR /root/src/darknet/build
 #     dpkg -i darknet-*.deb
 
 RUN cmake -DCMAKE_BUILD_TYPE=Release ..
+
+WORKDIR /root/src/darknet/build
+RUN ls -lrth
 RUN make -j4 package
+
 RUN dpkg -i darknet-*.deb
 
 
