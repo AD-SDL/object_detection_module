@@ -34,12 +34,8 @@ WORKDIR /root/src/darknet/build
 
 RUN cmake -DCMAKE_BUILD_TYPE=Release ..
 
-RUN cmake --version
-RUN gcc --version
-
-WORKDIR /root/src/darknet/build
-RUN ls -lrth
-RUN make -j4 package
+# RUN make -j4 package
+RUN make package
 
 RUN dpkg -i darknet-*.deb
 
